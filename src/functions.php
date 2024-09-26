@@ -16,3 +16,13 @@ if (!function_exists("db")) {
         return $db;
     }
 }
+
+if (!function_exists('model')) {
+    function model($model)
+    {
+        if(class_exists("\Scrawler\App")){
+        return \Scrawler\App\Scrawler::engine()->db()->create($model);
+        }
+        return db()->create($model);
+    }
+}
