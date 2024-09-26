@@ -1,0 +1,23 @@
+{
+    "name": "scrawler/database",
+    "description": "Arca ORM integration bridge for scrawler framework",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Scrawler\\": "src/"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "ipranjal",
+            "email": "pranjaltech10@gmail.com"
+        }
+    ],
+    "require": {
+        "scrawler/arca": "^3.0"
+    }
+}
