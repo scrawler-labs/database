@@ -21,8 +21,16 @@ if (!function_exists('model')) {
     function model($model)
     {
         if(class_exists("\Scrawler\App")){
-        return \Scrawler\App\Scrawler::engine()->db()->create($model);
+        return \Scrawler\App::engine()->db()->create($model);
         }
         return db()->create($model);
+    }
+}
+
+if (!function_exists('table_exists')) {
+    function table_exists($table)
+    {
+       
+        return db()->getConnection()->getSchemaManager()->tablesExist([$table]);
     }
 }
