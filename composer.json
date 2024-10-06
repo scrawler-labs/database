@@ -19,5 +19,8 @@
     ],
     "require": {
         "scrawler/arca": "^3.0"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.12"
     }
 }

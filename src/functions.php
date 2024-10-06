@@ -1,7 +1,11 @@
 <?php
+declare(strict_types=1);
 
 if (!function_exists("db")) {
-    function db($connectionParams = null)
+    /**
+     * @return \Scrawler\Database
+     */
+    function db(): \Scrawler\Database
     {
         static $db;
         if (is_null($db)) {
@@ -18,7 +22,11 @@ if (!function_exists("db")) {
 }
 
 if (!function_exists('model')) {
-    function model($model)
+    /**
+     * @param string $model
+     * @return \Scrawler\Arca\Model
+     */
+    function model(string $model)
     {
         if(class_exists("\Scrawler\App")){
         return \Scrawler\App::engine()->db()->create($model);
@@ -28,9 +36,25 @@ if (!function_exists('model')) {
 }
 
 if (!function_exists('table_exists')) {
-    function table_exists($table)
+    /**
+     * @param string $table
+     * @return bool
+     */
+    function table_exists(string $table): mixed
     {
        
-        return db()->getConnection()->getSchemaManager()->tablesExist([$table]);
+        return db()->tableExists($table);
+    }
+}
+
+if (!function_exists('table_exists')) {
+    /**
+     * @param array<string> $tables
+     * @return bool
+     */
+    function tables_exist(array $tables): mixed
+    {
+       
+        return db()->tablesExist($tables);
     }
 }
