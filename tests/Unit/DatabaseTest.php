@@ -6,9 +6,9 @@ test('calling function without connection throws error', function (): void {
 
 test('tests connect() function', function (): void {
     db()->connect([
-        'dbname' => 'test',
-        'user' => 'root',
-        'password' => 'root@1432',
+        'dbname' => 'test_database',
+        'user' => 'admin',
+        'password' => 'rootpass',
         'host' => '127.0.0.1',
         'driver' => 'pdo_mysql',
         'useUUID' => false,
@@ -32,7 +32,7 @@ test('tests saveRequest() function', function (): void {
     expect($model->name)->toBe('John Doe');
 });
 
-test('tests binfRequest() function', function (): void {
+test('tests bindRequest() function', function (): void {
     $_POST['name'] = 'John Doe';
     $_POST['email'] = 'john@test.com';
     $_POST['csrf'] = '1234';
