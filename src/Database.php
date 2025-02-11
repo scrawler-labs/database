@@ -76,11 +76,11 @@ class Database
      */
     public function bindRequest(string|Model $model): Model
     {
-        if (function_exists('request')) {
+        if (function_exists('app')) {
             if (is_string($model)) {
                 $model = $this->create($model);
             }
-            foreach (request()->all() as $key => $value) {
+            foreach (app()->request()->all() as $key => $value) {
                 if ('csrf' != $key) {
                     $model->$key = $value;
                 }
@@ -89,7 +89,7 @@ class Database
             return $model;
         } else {
             // @codeCoverageIgnoreStart
-            throw new \Exception("scrawler\http is required to use this function");
+            throw new \Exception("scrawler\scrawler is required to use this function");
             // @codeCoverageIgnoreEnd
         }
     }
