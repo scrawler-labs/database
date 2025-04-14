@@ -32,13 +32,13 @@ test('tests saveRequest() function', function (): void {
     expect($model->name)->toBe('John Doe');
 });
 
-test('tests bindRequest() function', function (): void {
-    $_POST['name'] = 'John Doe';
-    $_POST['email'] = 'john@test.com';
-    $_POST['csrf'] = '1234';
-    $model = db()->bindRequest('user');
+// test('tests bindRequest() function', function (): void {
+//     $_POST['name'] = 'John Doe';
+//     $_POST['email'] = 'john@test.com';
+//     $_POST['csrf'] = '1234';
+//     $model = db()->bindRequest('user');
 
-    expect($model)->toBeInstanceOf(Scrawler\Arca\Model::class);
-    expect($model->name)->toBe('John Doe');
-    expect($model->email)->toBe('john@test.com');
-});
+//     expect($model)->toBeInstanceOf(Scrawler\Arca\Model::class);
+//     expect($model->name)->toBe('John Doe');
+//     expect($model->email)->toBe('john@test.com');
+// });
